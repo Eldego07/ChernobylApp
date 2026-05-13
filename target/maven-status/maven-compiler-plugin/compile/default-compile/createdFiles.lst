@@ -1,3 +1,7 @@
-com\mycompany\chernobylapp\ChernobylApp.class
+com\mycompany\chernobylapp\CriticalOnlyDangerPolicy.class
+com\mycompany\chernobylapp\DangerPolicy.class
 com\mycompany\chernobylapp\MonitoringSystem.class
+com\mycompany\chernobylapp\ChernobylApp.class
 com\mycompany\chernobylapp\SensoreGrezzo.class
+com\mycompany\chernobylapp\ThresholdDangerPolicy.class
+com\mycompany\chernobylapp\DangerLevel.class

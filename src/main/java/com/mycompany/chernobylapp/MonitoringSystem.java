@@ -15,25 +15,11 @@ class MonitoringSystem {
         System.out.println("=== RAPPORTO TELEMETRIA CHERNOBYL ===");
         
         for (SensoreGrezzo s : sensori) {
-            String statoPuraFollia = "OK";
-            
-            // LOGICA DI CALCOLO CENTRALIZZATA (Pessima pratica)
-            if (s.tipo.equals("GEIGER")) {
-                if (s.valore > 500.0) statoPuraFollia = "PERICOLO NUCLEARE";
-                else if (s.valore > 100.0) statoPuraFollia = "ATTENZIONE";
-            } 
-            else if (s.tipo.equals("TERMICO")) {
-                if (s.valore > 1000.0) statoPuraFollia = "FUSIONE CORE";
-                else if (s.valore > 500.0) statoPuraFollia = "SURRISCALDAMENTO";
-            } 
-            else if (s.tipo.equals("CHIMICO")) {
-                if (s.valore > 50.0) statoPuraFollia = "TOSSICO";
-            }
+            DangerLevel livelloPericolo = s.valutaPericolo();
 
-            // Output mischiato alla logica di business
-            System.out.println("Sensore: " + s.id + " [" + s.tipo + "]");
-            System.out.println("Lettura: " + s.valore);
-            System.out.println("Stato: " + statoPuraFollia);
+            System.out.println("Sensore: " + s.getId() + " [" + s.getTipo() + "]");
+            System.out.println("Lettura: " + s.getValore());
+            System.out.println("Stato: " + livelloPericolo);
             System.out.println("------------------------------------");
         }
     }
